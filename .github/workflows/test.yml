@@ -37,7 +37,7 @@ jobs:
         with:
           name: my-buildpack
           version: 0.0.2
-          file: commander.example.yml
+          file: commander.yml
 
       - name: Upload dist
         uses: actions/upload-artifact@v2
