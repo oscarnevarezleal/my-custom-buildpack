@@ -24,21 +24,23 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go-version }}
+
       - name: Checkout code
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - name: Setup laraboot CLI
-        uses: laraboot-io/github-actions/setup-cli@cli-actions
+
       - uses: buildpacks/github-actions/setup-pack@v4.1.0
         with:
           pack-version: 0.20.0
+
       - name: Gh action
         uses: laraboot-io/laraboot-commander/actions/commander@feature/gh-action
         with:
           name: my-buildpack
           version: 0.0.2
           file: commander.example.yml
-      - name: Integration test
-        run: make tests
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
