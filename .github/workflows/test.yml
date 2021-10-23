@@ -35,7 +35,7 @@ jobs:
         with:
           pack-version: 0.20.0
       - name: Gh action
-        uses: laraboot-io/laraboot-commander/actions/commander
+        uses: laraboot-io/laraboot-commander/actions/commander@master
         with:
           name: my-buildpack
           version: 0.0.2
